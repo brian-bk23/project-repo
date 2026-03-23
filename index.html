@@ -1,80 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRIAN EMMANUEL | Software Developer</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- Navbar -->
-<header>
-    <h1 class="logo">MyPortfolio</h1>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+<header class="header">
+  <div class="header-inner">
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact" class="nav-btn">Contact</a>
     </nav>
+  </div>
 </header>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="hero-text">
-        <h2>Hello, I'm <span>BRIAN EMMANUEL</span></h2>
-        <h3>I am a <span id="typing"></span></h3>
-        <button onclick="scrollToSection('contact')">Hire Me</button>
+<section class="hero">
+  <div class="glass hero-box">
+    <h1 class="typing-text">Hello, I'm BRIAN EMMANUEL <span></span></h1>
+    <p class="fade-in">Software Developer • Problem Solver</p>
+  </div>
+</section>
+
+<section class="section glass" id="about">
+  <h2>About Me</h2>
+  <p>
+    I am a passionate software developer who enjoys solving real-world
+    problems through clean and efficient code. I focus on building
+    scalable applications and constantly improving my programming skills.
+  </p>
+</section>
+
+<section class="section" id="skills">
+  <h2>Skills</h2>
+  <div class="skill-chips">
+    <span class="chip">Java</span>
+    <span class="chip">Python</span>
+    <span class="chip">JavaScript</span>
+    <span class="chip">SQL</span>
+    <span class="chip">Git</span>
+  </div>
+</section>
+
+<section class="section glass" id="projects">
+  <h2>Projects</h2>
+  <div class="flip-grid">
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <h3>Task Manager App</h3>
+        </div>
+        <div class="flip-back">
+          <p>
+            A productivity application that allows users to create,
+            edit, and track daily tasks with a clean user interface.
+          </p>
+          <span>JavaScript • Node.js • HTML • CSS</span>
+        </div>
+      </div>
     </div>
-</section>
 
-<!-- About -->
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-        I am a passionate web developer skilled in HTML, CSS, JavaScript, and Node.js.
-        I love building creative and responsive websites.
-    </p>
-</section>
-
-<!-- Projects -->
-<section id="projects">
-    <h2>My Projects</h2>
-    <div class="project-container">
-
-        <div class="card">
-            <h3>Portfolio Website</h3>
-            <p>Personal portfolio built using full-stack technologies.</p>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <h3>Student Management System</h3>
         </div>
-
-        <div class="card">
-            <h3>To-Do App</h3>
-            <p>Task manager using JavaScript.</p>
+        <div class="flip-back">
+          <p>
+            A system designed to store and manage student records
+            including marks, attendance, and profile details.
+          </p>
+          <span>Java • MySQL</span>
         </div>
-
-        <div class="card">
-            <h3>Weather App</h3>
-            <p>Weather app using API integration.</p>
-        </div>
-
+      </div>
     </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <h3>Weather App</h3>
+        </div>
+        <div class="flip-back">
+          <p>
+            A web application that fetches real-time weather data
+            using an external API and displays it with a modern UI.
+          </p>
+          <span>JavaScript • API • HTML • CSS</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<!-- Contact -->
-<section id="contact">
-    <h2>Contact Me</h2>
-
-    <form id="contactForm">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-
+<section class="section" id="contact">
+  <h2>Contact Me</h2>
+  <form id="contactForm" class="glass">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <p id="msg"></p>
 </section>
 
 <footer>
-    <p>© 2026 My Portfolio | All Rights Reserved</p>
+  <p>© 2026 BRIAN EMMANUEL</p>
 </footer>
 
 <script src="script.js"></script>

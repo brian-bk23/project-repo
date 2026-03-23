@@ -1,65 +1,48 @@
-const http = require("http");
+const express = require("express");
+const cors = require("cors");
+const fs = require("fs"); 
+const path = require("path");
 
-const PORT = process.env.PORT || 3000;
+const app = express();
+
+app.use(cors());
+app.use(express.json());
 
 
-const FRONTEND_URL = "https://brian-bk23.github.io";
-
-const server = http.createServer((req, res) => {
-
-   
-    res.setHeader("Access-Control-Allow-Origin", FRONTEND_URL);
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-   
-    if (req.method === "OPTIONS") {
-        res.writeHead(200);
-        return res.end();
-    }
+app.post("/submit", (req, res) => {
+    const { name, email, message } = req.body;
 
     
-    if (req.url === "/contact" && req.method === "POST") {
-        let body = "";
-
-        req.on("data", chunk => {
-            body += chunk.toString();
-        });
-
-        req.on("end", () => {
-            try {
-                const data = JSON.parse(body);
-
-                
-                console.log(" New Message Received:");
-                console.log("Name:", data.name);
-                console.log("Email:", data.email);
-                console.log("Message:", data.message);
-                console.log("-------------------------");
-
-                res.writeHead(200, { "Content-Type": "application/json" });
-                res.end(JSON.stringify({
-                    success: true,
-                    message: "Message sent successfully!"
-                }));
-
-            } catch (err) {
-                res.writeHead(400, { "Content-Type": "application/json" });
-                res.end(JSON.stringify({
-                    success: false,
-                    message: "Invalid data"
-                }));
-            }
-        });
-    }
+    console.log("Received:");
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Message:", message);
 
     
-    else {
-        res.writeHead(200, { "Content-Type": "text/plain" });
-        res.end("Backend is running ");
-    }
+    const msg = `${new Date().toISOString()} | ${name} | ${email} | ${message}\n`;
+
+    
+    const filePath = path.join(__dirname, "messages.txt");
+    fs.appendFile(filePath, msg, (err) => {
+        if (err) {
+            console.error("Error saving message:", err);
+            return res.status(500).send("Error saving message");
+        }
+        res.send("Message received successfully!");
+    });
 });
 
-server.listen(PORT, () => {
-    console.log(` Server running on port ${PORT}`);
+
+app.get("/health", (req, res) => {
+    res.json({ status: "Backend is running!" });
+});
+
+
+app.get("/", (req, res) => {
+    res.send("Backend is running!");
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
