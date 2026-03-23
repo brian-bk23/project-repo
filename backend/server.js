@@ -3,7 +3,7 @@ const http = require("http");
 const PORT = process.env.PORT || 3000;
 
 
-const FRONTEND_URL = "https://brian-bk23.github.io/project-repo/";
+const FRONTEND_URL = "https://brian-bk23.github.io/project-repo";
 
 const server = http.createServer((req, res) => {
 
