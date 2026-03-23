@@ -32,24 +32,24 @@ function erase() {
 
 document.addEventListener("DOMContentLoaded", type);
 
-//  IMPORTANT: Replace with your Render backend URL
+
+// ✅ IMPORTANT: Your actual Render backend URL
 const API_URL = "https://project-repo-x3if.onrender.com/contact";
+
 
 // Contact form
 document.getElementById("contactForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+    const name = document.getElementById("name")?.value.trim();
+    const email = document.getElementById("email")?.value.trim();
+    const message = document.getElementById("message")?.value.trim();
 
-    // Basic validation
+    // Validation
     if (!name || !email || !message) {
         alert("Please fill all fields");
         return;
     }
-
-    const data = { name, email, message };
 
     try {
         const response = await fetch(API_URL, {
@@ -57,20 +57,25 @@ document.getElementById("contactForm").addEventListener("submit", async function
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({ name, email, message })
         });
+
+        // 🔥 Check if response is actually OK
+        if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+        }
 
         const result = await response.json();
 
         if (result.success) {
-            alert(" Message sent successfully!");
+            alert("Message sent successfully!");
             document.getElementById("contactForm").reset();
         } else {
-            alert(" Failed: " + result.message);
+            alert("Failed: " + result.message);
         }
 
     } catch (error) {
-        console.error("Error:", error);
-        alert(" Server error. Try again later.");
+        console.error("❌ Fetch Error:", error);
+        alert("Server error. Try again later.");
     }
 });
