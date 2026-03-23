@@ -32,8 +32,8 @@ function erase() {
 
 document.addEventListener("DOMContentLoaded", type);
 
-// 🔥 IMPORTANT: Replace with your Render backend URL
-const API_URL = "https://your-backend-name.onrender.com/contact";
+//  IMPORTANT: Replace with your Render backend URL
+const API_URL = "https://project-repo-x3if.onrender.com/contact";
 
 // Contact form
 document.getElementById("contactForm").addEventListener("submit", async function (e) {
@@ -63,14 +63,14 @@ document.getElementById("contactForm").addEventListener("submit", async function
         const result = await response.json();
 
         if (result.success) {
-            alert("✅ Message sent successfully!");
+            alert(" Message sent successfully!");
             document.getElementById("contactForm").reset();
         } else {
-            alert("❌ Failed: " + result.message);
+            alert(" Failed: " + result.message);
         }
 
     } catch (error) {
         console.error("Error:", error);
-        alert("⚠️ Server error. Try again later.");
+        alert(" Server error. Try again later.");
     }
 });
