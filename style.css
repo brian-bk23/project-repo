@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
 }
 
-/* Glassmorphism */
+
 .glass {
   backdrop-filter: blur(10px);
   background: rgba(15, 25, 45, 0.5);
@@ -21,7 +21,7 @@ body {
   padding: 20px;
 }
 
-/* Header */
+
 .header {
   width: 100%;
   padding: 15px 0;
@@ -48,7 +48,7 @@ body {
   color: #1e90ff;
 }
 
-/* Hero Section */
+
 .hero {
   display: flex;
   justify-content: center;
@@ -70,7 +70,7 @@ body {
   margin-top: 10px;
 }
 
-/* Sections */
+
 .section {
   padding: 60px 20px;
   text-align: center;
@@ -81,7 +81,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* Skills */
+
 .skill-chips {
   display: flex;
   justify-content: center;
@@ -97,7 +97,7 @@ h2 {
   font-weight: bold;
 }
 
-/* Flip Cards */
+
 .flip-grid {
   display: flex;
   justify-content: center;
@@ -194,7 +194,7 @@ h2 {
   background: #1e90ff;
 }
 
-/* Footer */
+
 footer {
   text-align: center;
   padding: 20px;
