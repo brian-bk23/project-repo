@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -152,28 +152,28 @@ h2 {
   gap: 10px;
 }
 
-/* Contact Form - Compact Version */
+
 #contact h2 {
-  font-size: 1.5rem;       /* Smaller heading */
-  margin-bottom: 15px;     /* Reduced space below heading */
+  font-size: 1.5rem;       
+  margin-bottom: 15px;     
 }
 
 #contactForm {
-  max-width: 500px;        /* Limits form width */
-  margin: 0 auto;          /* Center the form */
-  padding: 15px;           /* Slight padding */
+  max-width: 500px;        
+  margin: 0 auto;          
+  padding: 15px;           
 }
 
 #contactForm input,
 #contactForm textarea,
 #contactForm button {
   width: 100%;
-  margin: 8px 0;           /* Reduced vertical spacing */
-  padding: 10px;           /* Smaller input height */
-  border-radius: 8px;      /* Slightly smaller rounded corners */
+  margin: 8px 0;           
+  padding: 10px;           
+  border-radius: 8px;      
   border: none;
   outline: none;
-  font-size: 0.9rem;       /* Smaller text inside inputs */
+  font-size: 0.9rem;       
 }
 
 #contactForm input,
